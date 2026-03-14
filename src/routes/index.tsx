@@ -14,7 +14,7 @@ function Index() {
   if (isError) return <div className="p-4">Error: {error.message}</div>
 
   return (
-    <div className="mx-auto max-w-md p-4">
+    <div className="mx-auto max-w-6xl p-4">
       <RestaurantList restaurants={data.restaurants} />
     </div>
   )
