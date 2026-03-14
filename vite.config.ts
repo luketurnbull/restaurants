@@ -19,4 +19,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      '/api/restaurants': {
+        target: 'https://eccdn.com.au',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/restaurants/, '/misc/challengedata.json'),
+      },
+    },
+  },
 })
