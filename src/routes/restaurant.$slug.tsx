@@ -2,6 +2,8 @@ import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { useRestaurants } from '@/hooks/use-restaurants'
 import { RestaurantImage } from '@/components/restaurant-image'
 import { RestaurantDetailInfo } from '@/components/restaurant-detail-info'
+import { RestaurantDetailSkeleton } from '@/components/restaurant-detail-skeleton'
+import { RestaurantDetailError } from '@/components/restaurant-detail-error'
 import { DealCard } from '@/components/deal-card'
 import { ActionRow, ActionItem } from '@/components/action-row'
 import { Button } from '@/components/ui/button'
@@ -22,8 +24,8 @@ function RestaurantDetail() {
   const router = useRouter()
   const { data, isPending, isError, error } = useRestaurants()
 
-  if (isPending) return <div className="p-8">Loading...</div>
-  if (isError) return <div className="p-8">Error: {error.message}</div>
+  if (isPending) return <RestaurantDetailSkeleton />
+  if (isError) return <RestaurantDetailError error={error} />
 
   const restaurant = data.bySlug[slug]
   if (!restaurant) return <div className="p-8">Restaurant not found</div>
