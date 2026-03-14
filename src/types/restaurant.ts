@@ -10,7 +10,7 @@ export interface Deal {
   qtyLeft: string
 }
 
-export interface Restaurant {
+export interface ApiRestaurant {
   objectId: string
   name: string
   address1: string
@@ -22,6 +22,16 @@ export interface Restaurant {
   deals: Deal[]
 }
 
+export interface Restaurant extends ApiRestaurant {
+  slug: string
+  bestDiscount: number
+}
+
+export interface ApiRestaurantsResponse {
+  restaurants: ApiRestaurant[]
+}
+
 export interface RestaurantsResponse {
   restaurants: Restaurant[]
+  bySlug: Record<string, Restaurant>
 }

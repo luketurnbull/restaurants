@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useRestaurants } from '@/hooks/use-restaurants'
-import { createRestaurantSlug } from '@/lib/utils'
 
 export const Route = createFileRoute('/restaurant/$slug')({
   component: RestaurantDetail,
@@ -13,9 +12,7 @@ function RestaurantDetail() {
   if (isPending) return <div>Loading...</div>
   if (isError) return <div>Error: {error.message}</div>
 
-  const restaurant = data.restaurants.find(
-    (r) => createRestaurantSlug(r.name, r.objectId) === slug,
-  )
+  const restaurant = data.bySlug[slug]
   if (!restaurant) return <div>Restaurant not found</div>
 
   return (

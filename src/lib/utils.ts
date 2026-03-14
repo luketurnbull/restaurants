@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import type { Deal } from "@/types/restaurant"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -19,4 +20,8 @@ export function slugify(str: string): string {
 
 export function createRestaurantSlug(name: string, objectId: string): string {
   return `${slugify(name)}-${objectId.substring(0, 8).toLowerCase()}`
+}
+
+export function getBestDiscount(deals: Deal[]): number {
+  return Math.max(0, ...deals.map((d) => Number(d.discount)))
 }
