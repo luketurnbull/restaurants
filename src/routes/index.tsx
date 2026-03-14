@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useRestaurants } from '@/hooks/use-restaurants'
-import { RestaurantCard } from '@/components/restaurant-card'
+import { RestaurantList } from '@/components/restaurant-list'
 
 export const Route = createFileRoute('/')(
   {
@@ -14,10 +14,8 @@ function Index() {
   if (isError) return <div className="p-4">Error: {error.message}</div>
 
   return (
-    <div className="mx-auto max-w-md space-y-6 p-4">
-      {data.restaurants.map((restaurant) => (
-        <RestaurantCard key={restaurant.objectId} restaurant={restaurant} />
-      ))}
+    <div className="mx-auto max-w-md p-4">
+      <RestaurantList restaurants={data.restaurants} />
     </div>
   )
 }
