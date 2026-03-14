@@ -26,7 +26,7 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
           <RestaurantImage
             src={restaurant.imageLink}
             alt={restaurant.name}
-            className="rounded-xl"
+            className="rounded-xl group-hover/card:scale-105"
           />
           {bestDeal && (
             <DealBadge deal={bestDeal} restaurantClose={restaurant.close} />

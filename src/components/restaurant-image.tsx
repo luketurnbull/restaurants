@@ -15,7 +15,7 @@ export function RestaurantImage({ src, alt, className }: RestaurantImageProps) {
     return (
       <div
         className={cn(
-          'aspect-[16/10] bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center transition-transform duration-300 group-hover/card:scale-105',
+          'aspect-[16/10] bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center transition-transform duration-300',
           className,
         )}
       >
@@ -28,7 +28,7 @@ export function RestaurantImage({ src, alt, className }: RestaurantImageProps) {
     <img
       src={src}
       alt={alt}
-      className={cn('aspect-[16/10] w-full object-cover transition-transform duration-300 group-hover/card:scale-105', className)}
+      className={cn('aspect-[16/10] w-full object-cover transition-transform duration-300', className)}
       onError={() => setHasError(true)}
     />
   )
