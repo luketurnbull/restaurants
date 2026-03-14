@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/restaurants",
+      "destination": "https://eccdn.com.au/misc/challengedata.json"
+    }
+  ]
+}
