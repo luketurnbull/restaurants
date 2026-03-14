@@ -1,4 +1,4 @@
-# Montreal V2 — Restaurant Listing App
+# Restaurant Listing App
 
 Browse and view restaurant deals sourced from an external API.
 
