@@ -1,7 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { Heart } from 'lucide-react'
 import { RestaurantImage } from '@/components/restaurant-image'
-import { createRestaurantSlug } from '@/lib/utils'
 import type { Restaurant } from '@/types/restaurant'
 
 function getBestDeal(restaurant: Restaurant) {
@@ -17,10 +16,9 @@ interface RestaurantCardProps {
 
 export function RestaurantCard({ restaurant }: RestaurantCardProps) {
   const bestDeal = getBestDeal(restaurant)
-  const slug = createRestaurantSlug(restaurant.name, restaurant.objectId)
 
   return (
-    <Link to="/restaurant/$slug" params={{ slug }} className="block">
+    <Link to="/restaurant/$slug" params={{ slug: restaurant.slug }} className="block">
       <div className="overflow-hidden rounded-xl bg-card shadow-sm">
         <div className="relative">
           <RestaurantImage
